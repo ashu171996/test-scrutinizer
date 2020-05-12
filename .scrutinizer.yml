@@ -1,0 +1,16 @@
+checks:
+  go: true
+build:
+  environment:
+    go: "go1.13.8"
+    mysql: flase
+  nodes:
+    analysis:
+      tests:
+        override:
+          - go-scrutinizer-run # will run Go Scrutinizer, a Go analysis engine that provids static code analysis, code metrics and duplicate code detection.
+          - govet-run # Open source analysis tool
+          - golint-run # Open source analysis tool
+filter:
+  excluded_paths:
+    - "*/*_test.go"
