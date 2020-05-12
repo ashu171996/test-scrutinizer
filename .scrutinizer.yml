@@ -3,7 +3,6 @@ checks:
 build:
   environment:
     go: "go1.13.8"
-    mysql: flase
   nodes:
     analysis:
       tests:
