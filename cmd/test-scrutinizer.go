@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"test-scrutinizer/config"
 	database "test-scrutinizer/driver"
 	"test-scrutinizer/log"
@@ -41,4 +42,15 @@ func scrutinizerCmd(cmd *cobra.Command, args []string) {
 		log.Fatalf("Could not connect to AWS : %s", err)
 	}
 	log.Info("Metrics successfully sent to cloudwatch")
+}
+
+func Abc() {
+	localConfig := config.Config()
+	dbC, err := database.DbConn(localConfig)
+	if err != nil {
+		log.Fatalf("could not connect to db : %s", err)
+	}
+	defer dbC.Close()
+	object := model.NewDummyStructure(dbC)
+	fmt.Println("object", object)
 }
