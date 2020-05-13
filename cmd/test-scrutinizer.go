@@ -42,6 +42,8 @@ func scrutinizerCmd(cmd *cobra.Command, args []string) {
 		log.Fatalf("Could not connect to AWS : %s", err)
 	}
 	log.Info("Metrics successfully sent to cloudwatch")
+
+	recursion()
 }
 
 func Abc() {
@@ -53,4 +55,7 @@ func Abc() {
 	defer dbC.Close()
 	object := model.NewDummyStructure(dbC)
 	fmt.Println("object", object)
+}
+func recursion() {
+	recursion() /* function calls itself */
 }
