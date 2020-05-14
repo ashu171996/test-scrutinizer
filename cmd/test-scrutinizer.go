@@ -47,8 +47,8 @@ func scrutinizerCmd(cmd *cobra.Command, args []string) {
 }
 
 func Abc() {
-	localConfig := config.Config()
-	dbC, err := database.DbConn(localConfig)
+	local_Config := config.Config()
+	dbC, err := database.DbConn(local_Config)
 	if err != nil {
 		log.Fatalf("could not connect to db : %s", err)
 	}
