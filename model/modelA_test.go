@@ -14,7 +14,7 @@ func TestInsertNewRecords(t *testing.T) {
 		log.Fatalf("could not mock SQL service : %s", err)
 	}
 	defer db.Close()
-	Name := "abc"
+	Name := "ab"
 	City := "def"
 
 	mock.ExpectExec("INSERT INTO new_table").WithArgs(Name, City).WillReturnResult(sqlmock.NewResult(1, 1))
