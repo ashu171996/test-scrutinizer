@@ -27,6 +27,6 @@ build:
             coverage:
               file: 'cover.out'
               format: 'go-cc'
-filter:
-  excluded_paths:
-    - "*/*_test.go"
+#filter:
+  #excluded_paths:
+    #- "*/*_test.go"
