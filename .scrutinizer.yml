@@ -1,32 +1,34 @@
-checks:
-  go: true
-build:
-  environment:
-    go: "go1.13.8"
-    mysql: "5.7"
-  nodes:
-    analysis:
-      project_setup:
-        override:
-          - 'true'
-      environment:
-        go:
-          version: go1.13.8
-      tests:
-        override:
-          - go-scrutinizer-run # will run Go Scrutinizer, a Go analysis engine that provids static code analysis, code metrics and duplicate code detection.
-          - govet-run # Open source analysis tool
-          - golint-run # Open source analysis tool
-    coverage:
-      environment:
-        go:
-          version: go1.13.8
-      tests:
-        override:
-          - command: go test -coverprofile=cover.out  ./...
-            coverage:
-              file: 'cover.out'
-              format: 'go-cc'
-#filter:
-  #excluded_paths:
-    #- "*/*_test.go"
+# checks:
+#   go: true
+# build:
+#   environment:
+#     go: go1.13.8
+#     #mysql: "5.7"
+#   nodes:
+#     analysis:
+#       project_setup:
+#         override: true
+#       environment:
+#         go:
+#           version: go1.13.8
+#       tests:
+#         override:
+#           - cd /home/scrutinizer/build/github.com/pepperstone-data/go-report/capital-adequacy && go-scrutinizer-run # will run Go Scrutinizer, a Go analysis engine that provids static code analysis, code metrics and duplicate code detection.
+#           - cd /home/scrutinizer/build/github.com/pepperstone-data/go-report/account-check && go-scrutinizer-run
+#           - cd /home/scrutinizer/build/github.com/pepperstone-data/go-report/capital-adequacy && govet-run # Open source analysis tool
+#           - cd /home/scrutinizer/build/github.com/pepperstone-data/go-report/account-check && govet-run
+#           - cd /home/scrutinizer/build/github.com/pepperstone-data/go-report/capital-adequacy && golint-run # Open source analysis tool
+#           - cd /home/scrutinizer/build/github.com/pepperstone-data/go-report/account-check && golint-run
+#     coverage:
+#       environment:
+#         go:
+#           version: go1.13.8
+#       tests:
+#         override:
+#           - command: go test -coverprofile=cover.out  ./...
+#             coverage:
+#               file: 'cover.out'
+#               format: 'go-cc'
+# filter:
+#   excluded_paths:
+#     - "*/*_test.go"
